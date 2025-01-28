@@ -23,6 +23,13 @@ function HomePage() {
     dispatch(setCurrentIndex(selectedIndex));
   };
 
+  const handleNavLinkClick = () => {
+    const navbarToggle = document.querySelector(".navbar-toggler");
+    if (navbarToggle) {
+      navbarToggle.click();
+    }
+  };
+
   const handlePrev = () => {
     dispatch(setCurrentIndex(currentIndex === 0 ? 2 : currentIndex - 1));
   };
@@ -60,7 +67,10 @@ function HomePage() {
               <li className="nav-item">
                 <a
                   className={`nav-link custom-head ${selectedRegion === "Asia" ? "active" : ""}`}
-                  onClick={() => filterByRegion("Asia")}
+                  onClick={() => {
+                    filterByRegion("Asia");
+                    handleNavLinkClick();
+                  }}
                   style={{
                     cursor: "pointer",
                     textDecoration: selectedRegion === "Asia" ? "underline" : "none",
@@ -72,7 +82,10 @@ function HomePage() {
               <li className="nav-item">
                 <a
                   className={`nav-link custom-head ${selectedRegion === "Africa" ? "active" : ""}`}
-                  onClick={() => filterByRegion("Africa")}
+                  onClick={() => {
+                    filterByRegion("Africa");
+                    handleNavLinkClick();
+                  }}
                   style={{
                     cursor: "pointer",
                     textDecoration: selectedRegion === "Africa" ? "underline" : "none",
@@ -84,7 +97,10 @@ function HomePage() {
               <li className="nav-item">
                 <a
                   className={`nav-link custom-head ${selectedRegion === "Europe" ? "active" : ""}`}
-                  onClick={() => filterByRegion("Europe")}
+                  onClick={() => {
+                    filterByRegion("Europe");
+                    handleNavLinkClick();
+                  }}
                   style={{
                     cursor: "pointer",
                     textDecoration: selectedRegion === "Europe" ? "underline" : "none",
